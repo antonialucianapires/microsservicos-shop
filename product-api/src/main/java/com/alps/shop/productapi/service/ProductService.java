@@ -43,6 +43,16 @@ public class ProductService {
         return null;
     }
 
+    public ProductDTO save(ProductDTO productDTO) {
+        Product product =
+                productRepository.save(Product.convert(productDTO));
+        return ProductDTO.convert(product);
+    }
 
+    public void delete(long ProductId) {
+        Optional<Product> Product =
+                productRepository.findById(ProductId);
+        Product.ifPresent(product -> productRepository.delete(product));
+    }
 
 }
