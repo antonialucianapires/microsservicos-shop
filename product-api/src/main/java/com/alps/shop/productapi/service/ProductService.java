@@ -1,7 +1,9 @@
 package com.alps.shop.productapi.service;
 
 import com.alps.shop.productapi.dto.ProductDTO;
+import com.alps.shop.productapi.model.Category;
 import com.alps.shop.productapi.model.Product;
+import com.alps.shop.productapi.repository.CategoryRepository;
 import com.alps.shop.productapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public List<ProductDTO> getAll() {
         List<Product> products = productRepository.findAll();
@@ -44,8 +49,11 @@ public class ProductService {
     }
 
     public ProductDTO save(ProductDTO productDTO) {
-        Product product =
-                productRepository.save(Product.convert(productDTO));
+        Boolean existsCategory = categoryRepository.existsById(productDTO.getCategory().getId());
+        if (!existsCategory) {
+            throw new RuntimeException("A categoria não existe");
+        }
+        Product product = productRepository.save(Product.convert(productDTO));
         return ProductDTO.convert(product);
     }
 
