@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../product-api/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../product-api/src/main/java/com/alps/shop/productapi/controller/ProductController.java">
           <value>
             <set />
