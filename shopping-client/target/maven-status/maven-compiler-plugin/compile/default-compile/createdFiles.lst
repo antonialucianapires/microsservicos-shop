@@ -1,0 +1,13 @@
+com/alps/shop/shoppingclient/dto/ProductDTO.class
+com/alps/shop/shoppingclient/dto/CategoryDTO.class
+com/alps/shop/shoppingclient/dto/UserDTO$UserDTOBuilder.class
+com/alps/shop/shoppingclient/dto/ErrorDTO.class
+com/alps/shop/shoppingclient/dto/ItemDTO$ItemDTOBuilder.class
+com/alps/shop/shoppingclient/dto/ShopReportDTO.class
+com/alps/shop/shoppingclient/dto/ShopDTO.class
+com/alps/shop/shoppingclient/dto/ShopDTO$ShopDTOBuilder.class
+com/alps/shop/shoppingclient/dto/UserDTO.class
+com/alps/shop/shoppingclient/dto/ShopReportDTO$ShopReportDTOBuilder.class
+com/alps/shop/shoppingclient/dto/ItemDTO.class
+com/alps/shop/shoppingclient/dto/CategoryDTO$CategoryDTOBuilder.class
+com/alps/shop/shoppingclient/dto/ProductDTO$ProductDTOBuilder.class
