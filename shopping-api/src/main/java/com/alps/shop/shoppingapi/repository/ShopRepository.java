@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Date;
 import java.util.List;
 
-public interface ShopRepository extends JpaRepository<Shop, Long> {
+public interface ShopRepository extends JpaRepository<Shop, Long>, ReportRepository {
 
     //recupera todas as compras de um usuário específico
     List<Shop> findAllByUserIdentifier(String userIdentifier);
@@ -16,6 +16,6 @@ public interface ShopRepository extends JpaRepository<Shop, Long> {
     List<Shop> findAllByTotalGreaterThan(Float total);
 
     //recupera todas as compras a partir de uma data específica
-    List<Shop> findAllByDateGreaterThan(Date date);
+    List<Shop> findAllByDateProcessingGreaterThan(Date date);
 
 }

@@ -20,8 +20,7 @@ public class ShopDTO {
     private String userIdentifier;
     @NotNull
     private Float total;
-    @NotNull
-    private Date date;
+    private Date dateProcessing;
     @NotNull
     private List<ItemDTO> items;
 

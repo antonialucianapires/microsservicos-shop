@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,7 +23,7 @@ public class Shop {
     private Long id;
     private String userIdentifier;
     private float total;
-    private Date date;
+    private Date dateProcessing;
     @ElementCollection(fetch = FetchType.EAGER) //relacionamento de uma coleção dependente
     @CollectionTable(name = "shop_item",
             joinColumns = @JoinColumn(name = "shop_id"))//define qual é a tabela onde os itens estarão armazenados
@@ -34,7 +33,7 @@ public class Shop {
         Shop shop = new Shop();
         shop.setUserIdentifier(shopDTO.getUserIdentifier());
         shop.setTotal(shopDTO.getTotal());
-        shop.setDate(shopDTO.getDate());
+        shop.setDateProcessing(shopDTO.getDateProcessing());
         shop.setItems(shopDTO
                 .getItems()
                 .stream()

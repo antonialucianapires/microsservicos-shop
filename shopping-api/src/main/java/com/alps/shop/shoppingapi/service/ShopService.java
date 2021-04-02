@@ -1,5 +1,6 @@
 package com.alps.shop.shoppingapi.service;
 
+import com.alps.shop.shoppingapi.dto.ItemDTO;
 import com.alps.shop.shoppingapi.dto.ShopDTO;
 import com.alps.shop.shoppingapi.model.Shop;
 import com.alps.shop.shoppingapi.repository.ShopRepository;
@@ -36,7 +37,7 @@ public class ShopService {
 
     public List<ShopDTO> getByDate(ShopDTO shopDTO) {
         List<Shop> shops = shopRepository
-                .findAllByDateGreaterThan(shopDTO.getDate());
+                .findAllByDateProcessingGreaterThan(shopDTO.getDateProcessing());
         return shops
                 .stream()
                 .map(ShopDTO::convert)
@@ -54,10 +55,10 @@ public class ShopService {
     public ShopDTO save(ShopDTO shopDTO) {
         shopDTO.setTotal(shopDTO.getItems()
                 .stream()
-                .map(x -> x.getPrice())
+                .map(ItemDTO::getPrice)
                 .reduce((float) 0, Float::sum));
         Shop shop = Shop.convert(shopDTO);
-        shop.setDate(new Date());
+        shop.setDateProcessing(new Date());
         shop = shopRepository.save(shop);
         return ShopDTO.convert(shop);
     }
