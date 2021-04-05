@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  mysql:
+    image: mysql:8.0.23
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: bola1151
+      MYSQL_DATABASE: micro_shop
+      MYSQL_ROOT_PASSWORD: bola1151
+
+  product:
+    image: loja/product-api
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+
+  user:
+    image: loja/user-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+  shopping:
+    image: loja/shopping-api
+    ports:
+      - "8082:8082"
+    environment:
+      PRODUCT_API_URL: localhost:8081
+      USER_API_URL: localhost:8080
+    depends_on:
+      - mysql

@@ -67,6 +67,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.9</version>
+				<configuration>
+					<repository>loja/user-api</repository>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
